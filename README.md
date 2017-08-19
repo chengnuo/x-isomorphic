@@ -1,1 +1,1 @@
-# x-isomorphic 同构手脚架
+isomorphic 同构
