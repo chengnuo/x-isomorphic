@@ -46,8 +46,11 @@ module.exports = {
     // require.resolve('webpack-dev-server/client') + '?/',
     // require.resolve('webpack/hot/dev-server'),
     // require.resolve('react-dev-utils/webpackHotDevClient'),
+    // 'react-hot-loader/patch',
+    // 'webpack/hot/only-dev-server',
+    // 'webpack-hot-middleware/client?http://localhost:2000',
     'react-hot-loader/patch',
-    'webpack-hot-middleware/client?http://localhost:2000',
+    'webpack-hot-middleware/client',
     // We ship a few polyfills by default:
     require.resolve('./polyfills'),
     // Errors should be considered fatal in development
@@ -115,40 +118,55 @@ module.exports = {
 
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
-      {
-        test: /\.json$/,
-        loader: 'json-load'
-      },
+      // {
+      //   test: /\.json$/,
+      //   loader: 'json-load'
+      // },
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   // exclude: /node_modules/,
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       presets: ['react', 'es2015', 'stage-0'],
+      //       plugins: [
+      //         ['react-hot-loader/babel'],
+      //         ['import', { "libraryName": "antd", "style": "css" }],
+      //         ['transform-runtime'],
+      //       ]
+      //     }
+      //   },
+      //   include: paths.appSrc,
+      // },
       {
         test: /\.js$/,
-        // exclude: /node_modules/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env', 'stage-0', 'react'],
+            presets: ['es2015', 'stage-0', 'react'],
             plugins: [
-              ['react-hot-loader/babel'],
+              //['react-hot-loader/babel'],
               ['import', { "libraryName": "antd", "style": "css" }]
             ]
           }
-        },
-        include: paths.appSrc,
+        }
       },
-      {
-        test: /\.(js|jsx)$/,
-        enforce: 'pre',
-        use: [
-          {
-            options: {
-              formatter: eslintFormatter,
-              eslintPath: require.resolve('eslint'),
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   enforce: 'pre',
+      //   use: [
+      //     {
+      //       options: {
+      //         formatter: eslintFormatter,
+      //         eslintPath: require.resolve('eslint'),
 
-            },
-            loader: require.resolve('eslint-loader'),
-          },
-        ],
-        include: paths.appSrc,
-      },
+      //       },
+      //       loader: require.resolve('eslint-loader'),
+      //     },
+      //   ],
+      //   include: paths.appSrc,
+      // },
       {
         // "oneOf" will traverse all following loaders until one will
         // match the requirements. When no loader matches it will fall

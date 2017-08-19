@@ -29,7 +29,7 @@ if (process.env.NODE_ENV !== 'production') {
         lazy: false,
         watchOptions: {
             aggregateTimeout: 300,
-            poll: 1000,
+            poll: true,
         },
     }));
 
