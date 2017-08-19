@@ -146,27 +146,28 @@ module.exports = {
           options: {
             presets: ['es2015', 'stage-0', 'react'],
             plugins: [
-              //['react-hot-loader/babel'],
+              // ['react-hot-loader/babel'], // TODO 这个坏掉了，去掉就可以了，有bug https://github.com/gaearon/react-hot-loader/issues/391
               ['import', { "libraryName": "antd", "style": "css" }]
             ]
           }
-        }
+        },
+        include: paths.appSrc,
       },
-      // {
-      //   test: /\.(js|jsx)$/,
-      //   enforce: 'pre',
-      //   use: [
-      //     {
-      //       options: {
-      //         formatter: eslintFormatter,
-      //         eslintPath: require.resolve('eslint'),
+      {
+        test: /\.(js|jsx)$/,
+        enforce: 'pre',
+        use: [
+          {
+            options: {
+              formatter: eslintFormatter,
+              eslintPath: require.resolve('eslint'),
 
-      //       },
-      //       loader: require.resolve('eslint-loader'),
-      //     },
-      //   ],
-      //   include: paths.appSrc,
-      // },
+            },
+            loader: require.resolve('eslint-loader'),
+          },
+        ],
+        include: paths.appSrc,
+      },
       {
         // "oneOf" will traverse all following loaders until one will
         // match the requirements. When no loader matches it will fall
