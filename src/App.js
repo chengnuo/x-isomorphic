@@ -6,7 +6,7 @@ import { Button } from 'antd';
 
 class App extends Component {
   test = () => {
-    console.log('去掉')
+    console.log('去掉'); // TODO: 测试 FIXME:
   }
   render() {
     return (
