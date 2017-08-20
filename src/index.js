@@ -4,11 +4,11 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { AppContainer } from 'react-hot-loader';
-
+import Routes from './route';
 ReactDOM.render(
-  <AppContainer>
-    <App />
-  </AppContainer>,
+    <Routes>
+      <App />
+    </Routes>,
   document.getElementById('root')
 );
 registerServiceWorker();
