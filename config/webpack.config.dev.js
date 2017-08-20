@@ -146,7 +146,7 @@ module.exports = {
           options: {
             presets: ['es2015', 'stage-0', 'react'],
             plugins: [
-              // ['react-hot-loader/babel'], // TODO 这个坏掉了，去掉就可以了，有bug https://github.com/gaearon/react-hot-loader/issues/391
+              // ['react-hot-loader/babel'], // TODO: 这个坏掉了，去掉就可以了，有bug https://github.com/gaearon/react-hot-loader/issues/391
               // ['import', { "libraryName": "antd", "style": "css" }]  // 这里是使用css
               ['import', { "libraryName": "antd", "style": true }] // 这里使用的是less
             ]
