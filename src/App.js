@@ -10,7 +10,10 @@ import logo from './logo.svg';
 import './App.css';
 // antd组件
 import { Button } from 'antd';
-// 自己组件
+// reduxs组件
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import * as actions from 'REDUXS/actions';
 
 
 // class App extends Component {
@@ -38,6 +41,10 @@ import { Button } from 'antd';
 
 
 class App extends Component {
+  componentDidMount() {
+    this.props.action.actionsTodo();
+    this.props.action.fetchLogin();
+  }
   render() {
     return (
       <div>
@@ -51,4 +58,18 @@ class App extends Component {
   }
 }
 
-export default App;
+
+//export default App;
+function mapStateToProps(state, props) {
+  return {
+    // message: state.loginReducer.message,
+    // loading: state.loginReducer.loading,
+    // isLogined: state.loginReducer.isLogined,
+  }
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    action: bindActionCreators(actions, dispatch)
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -99,6 +99,14 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
+      REDUXS: path.join(paths.appSrc, 'reduxs'), //reduxs模块
+      //ASSETS: path.join(paths.appSrc, 'assets'), //css 和 js 模块
+      PAGES: path.join(paths.appSrc, 'pages'), //页面模块
+      UTILS: path.join(paths.appSrc, 'utils'), //工具模块
+      COMPONENTS: path.join(paths.appSrc, 'components'), //模板模块
+      STATIC: path.join(paths.appSrc, 'static'), //约定模块
+      //CONFIG: path.join(paths.appSrc, 'config'), //配置模块
+      ROUTES: path.join(paths.appSrc, 'routes'), //路由模块
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
